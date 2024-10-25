@@ -1,0 +1,148 @@
+:root {
+  --color-bg: #c0a592;
+  --color-primary: #be8352;
+  --color-secondary: #926142;
+  --color-accent: #6b412c;
+  --color-text: #41261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #2b2b2b;
+    --color-primary: #926142;
+    --color-secondary: #be8352;
+    --color-text: #eaeaea;
+  }
+}
+
+/* Application des variables */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Lora", sans-serif;
+}
+
+/* Style de base pour le header */
+.header {
+  display: flex; /* Active Flexbox */
+  justify-content: space-between; /* Espace entre le logo et la navigation */
+  align-items: center; /* Centre les éléments verticalement */
+  background-color: var(--color-primary); /* Couleur de fond du header */
+  padding: 20px; /* Espacement interne */
+  color: #fff; /* Couleur du texte */
+  margin: 10px;
+}
+
+.logo img {
+  max-width: 150px; /* Taille maximale pour le logo */
+  border-radius: 20px;
+}
+
+.title {
+  color: #2b2b2b;
+  margin: 20px;
+}
+/* Supprime les puces et le padding/margin par défaut du <ul> */
+/* Navigation */
+.nav ul {
+  list-style: none; /* Supprime les puces */
+  padding: 0; /* Supprime le padding */
+  margin: 0; /* Supprime la marge */
+  display: flex; /* Aligne les éléments en ligne avec Flexbox */
+  gap: 20px; /* Espacement entre les éléments */
+}
+
+/* Liens de la navigation */
+.nav ul li a {
+  color: #fff; /* Couleur des liens */
+  text-decoration: none; /* Supprime la sous-ligne par défaut */
+  font-weight: bold; /* Met les liens en gras */
+  padding: 10px 15px; /* Ajoute un padding pour plus de clicabilité */
+  display: block; /* Permet au padding de s'appliquer correctement */
+}
+
+/* Effet de survol */
+.nav ul li a:hover {
+  text-decoration: underline; /* Souligne les liens au survol */
+}
+
+.cta-btn {
+  background-color: var(--color-secondary); /* Couleur du bouton */
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px; /* Coins arrondis */
+  font-weight: bold;
+}
+
+.cta-btn:hover {
+  background-color: var(--color-bg); /* Couleur de fond différente au survol */
+}
+
+.photo-gallery {
+  width: 100%;
+  overflow-x: auto; /* Activer le défilement horizontal */
+  white-space: nowrap; /* Empêche la ligne de se casser pour un défilement fluide */
+  scroll-behavior: smooth; /* Ajoute une transition fluide au défilement */
+}
+
+.grid-container {
+  display: grid;
+  grid-auto-flow: column; /* Forcer la disposition en colonnes (horizontal) */
+  grid-gap: 10px; /* Espacement entre les éléments */
+}
+
+.grid-item {
+  flex: none; /* Empêche l'élément de s'étirer */
+  min-width: 200px; /* Largeur minimale des éléments (peut être ajustée) */
+}
+
+.grid-item img {
+  display: block;
+  width: 100%; /* Chaque image prend toute la largeur de son conteneur */
+  height: 200px; /* Maintient les proportions des images */
+  object-fit: cover; /* Découpe l'image si elle dépasse tout en gardant son rapport d'aspect */
+  cursor: pointer; /* Changer le curseur en main au survol */
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05); /* Agrandit légèrement l'image au survol */
+}
+
+/* Style de la barre de défilement */
+.photo-gallery::-webkit-scrollbar {
+  height: 8px; /* Hauteur de la barre de défilement */
+}
+
+.photo-gallery::-webkit-scrollbar-thumb {
+  background-color: #926142; /* Couleur du curseur de la barre de défilement */
+  border-radius: 10px; /* Arrondir les bords de la barre de défilement */
+}
+
+.section1 {
+  min-height: 300px;
+}
+
+footer {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Organise les éléments en colonne sur mobile */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+  }
+
+  .nav ul {
+    flex-direction: column; /* Les liens passent en colonne sur mobile */
+    gap: 10px; /* Espacement réduit entre les éléments */
+  }
+
+  .cta-btn {
+    margin-top: 10px; /* Ajoute un espace au-dessus du bouton sur mobile */
+  }
+}
