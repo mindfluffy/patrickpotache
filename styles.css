@@ -22,20 +22,29 @@ body {
   font-family: "Lora", sans-serif;
 }
 
-/* Style de base pour le header */
+/* Style du header */
 .header {
-  display: flex; /* Active Flexbox */
-  justify-content: space-between; /* Espace entre le logo et la navigation */
-  align-items: center; /* Centre les éléments verticalement */
-  background-color: var(--color-primary); /* Couleur de fond du header */
-  padding: 20px; /* Espacement interne */
-  color: #fff; /* Couleur du texte */
-  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--color-white); /* Fond blanc pour le header */
+  border-bottom: 2px solid var(--color-primary); /* Ligne de séparation en couleur principale */
 }
 
-.logo img {
-  max-width: 150px; /* Taille maximale pour le logo */
-  border-radius: 20px;
+/* Style du logo */
+.header .logo img {
+  max-width: 150px; /* Limite la taille du logo */
+}
+
+/* Titre stylisé (sur 2 lignes) */
+.header .title {
+  font-family: "serif", sans-serif; /* Style vintage */
+  font-size: 28px;
+  color: var(--color-primary); /* Couleur principale pour le titre */
+  text-align: center;
+  line-height: 1.2; /* Réduit l'espacement entre les lignes pour l'effet deux lignes */
+  text-transform: uppercase;
 }
 
 .title {
@@ -54,29 +63,38 @@ body {
 
 /* Liens de la navigation */
 .nav ul li a {
-  color: #fff; /* Couleur des liens */
-  text-decoration: none; /* Supprime la sous-ligne par défaut */
-  font-weight: bold; /* Met les liens en gras */
-  padding: 10px 15px; /* Ajoute un padding pour plus de clicabilité */
-  display: block; /* Permet au padding de s'appliquer correctement */
+  text-decoration: none; /* Supprime la sous-ligne des liens */
+  font-size: 18px; /* Taille du texte du menu */
+  color: var(--color-secondary); /* Couleur secondaire pour les liens */
+  padding: 10px 15px; /* Ajoute du padding autour des liens */
+  text-transform: uppercase; /* Texte en majuscules pour le menu */
+  font-weight: bold; /* Texte en gras */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Transition douce */
 }
 
-/* Effet de survol */
+/* Effet hover sur les liens */
 .nav ul li a:hover {
-  text-decoration: underline; /* Souligne les liens au survol */
+  color: var(--color-white); /* Le texte devient blanc au survol */
+  background-color: var(
+    --color-primary
+  ); /* Fond en couleur principale au survol */
+  border-radius: 5px; /* Arrondit légèrement les coins du fond */
 }
 
+/* Style du bouton Contact */
 .cta-btn {
-  background-color: var(--color-secondary); /* Couleur du bouton */
-  color: #fff;
+  background-color: var(--color-primary); /* Couleur de fond du bouton */
+  color: var(--color-white); /* Texte en blanc */
   padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px; /* Coins arrondis */
+  text-transform: uppercase;
   font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .cta-btn:hover {
-  background-color: var(--color-bg); /* Couleur de fond différente au survol */
+  background-color: var(--color-secondary); /* Change de couleur au survol */
 }
 
 .photo-gallery {
@@ -120,8 +138,79 @@ body {
   border-radius: 10px; /* Arrondir les bords de la barre de défilement */
 }
 
+/* Style de la section */
 .section1 {
-  min-height: 300px;
+  background-color: var(--color-bg-light); /* Fond léger */
+  color: var(--color-text); /* Texte en marron foncé */
+  padding: 40px; /* Espacement interne */
+  border-radius: 8px; /* Coins légèrement arrondis */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre pour l'effet de profondeur */
+  max-width: 800px; /* Largeur maximale pour centrer le contenu */
+  margin: 40px auto; /* Centrer la section */
+  animation: fadeIn 1s ease-in-out; /* Animation à l'apparition */
+}
+
+/* Style des titres */
+.section1 h2,
+.section1 h3 {
+  color: var(--color-primary); /* Titres en couleur principale */
+  text-transform: uppercase; /* Titres en majuscules pour un effet moderne */
+  margin-bottom: 20px;
+  font-size: 2em;
+  position: relative;
+}
+
+.section1 h2::after,
+.section1 h3::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background-color: var(
+    --color-secondary
+  ); /* Barre sous le titre en couleur secondaire */
+  left: 0;
+  bottom: -10px; /* Décalé sous le titre */
+}
+
+/* Style des paragraphes */
+.section1 p {
+  line-height: 1.6; /* Espacement entre les lignes pour une meilleure lisibilité */
+  margin-bottom: 20px;
+}
+
+/* Style des listes */
+.section1 ul {
+  list-style: none; /* Enlever les puces */
+  padding: 0;
+}
+
+.section1 ul li {
+  background-color: var(--color-primary); /* Fond des éléments de la liste */
+  color: var(--color-accent); /* Texte blanc */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Animation au survol */
+}
+
+.section1 ul li:hover {
+  background-color: var(--color-secondary); /* Change de couleur au survol */
+  transform: translateY(
+    -5px
+  ); /* Déplace légèrement l'élément vers le haut au survol */
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 footer {
